@@ -13,7 +13,7 @@
 
         body {
             font-family: Arial, sans-serif;
-            background-color: #eaf4ff;
+            background: #eaf4ff;
             margin: 0;
             padding: 20px;
             min-height: 100vh;
@@ -23,19 +23,17 @@
         }
 
         .container {
-            background-color: white;
             width: 100%;
-            max-width: 500px;
-            padding: 30px;
+            max-width: 450px;
+            background: white;
+            padding: 25px;
             border-radius: 20px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 20px #d0dbe8;
         }
 
         h1 {
             text-align: center;
             color: #2878c8;
-            font-size: 27px;
-            margin-bottom: 30px;
         }
 
         label {
@@ -47,7 +45,7 @@
 
         input {
             width: 100%;
-            padding: 13px;
+            padding: 12px;
             border: 1px solid #ccc;
             border-radius: 8px;
             font-size: 16px;
@@ -56,128 +54,76 @@
         button {
             width: 100%;
             margin-top: 22px;
-            padding: 14px;
+            padding: 13px;
+            background: #2878c8;
+            color: white;
             border: none;
             border-radius: 8px;
-            background-color: #2878c8;
-            color: white;
             font-size: 16px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #1d5fa7;
         }
 
         #hasil {
             display: none;
-            margin-top: 25px;
-            padding: 20px;
+            margin-top: 20px;
+            padding: 15px;
             border-radius: 12px;
             text-align: center;
-            line-height: 1.8;
             overflow-wrap: anywhere;
         }
 
-        .mutu-A {
-            background-color: #d1fae5;
-            color: #065f46;
-        }
-
-        .mutu-B {
-            background-color: #dbeafe;
-            color: #1e40af;
-        }
-
-        .mutu-C {
-            background-color: #fef3c7;
-            color: #92400e;
-        }
-
-        .mutu-D {
-            background-color: #ffedd5;
-            color: #9a3412;
-        }
-
-        .mutu-E,
-        .error {
-            background-color: #fee2e2;
-            color: #991b1b;
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 22px;
-            }
-
-            h1 {
-                font-size: 24px;
-            }
-        }
+        .mutu-A { background: #d1fae5; color: #065f46; }
+        .mutu-B { background: #dbeafe; color: #1e40af; }
+        .mutu-C { background: #fef3c7; color: #92400e; }
+        .mutu-D { background: #ffedd5; color: #9a3412; }
+        .mutu-E, .error { background: #fee2e2; color: #991b1b; }
     </style>
 </head>
 
 <body>
-
     <div class="container">
         <h1>Penentu Huruf Mutu</h1>
 
         <label for="nama">Nama Mahasiswa:</label>
-        <input
-            type="text"
-            id="nama"
-            placeholder="Masukkan nama mahasiswa"
-        >
+        <input type="text" id="nama" placeholder="Masukkan nama">
 
         <label for="nilai">Nilai Akhir:</label>
-        <input
-            type="text"
-            id="nilai"
-            inputmode="decimal"
-            placeholder="Masukkan nilai 0 - 100"
-        >
+        <input type="text" id="nilai" inputmode="decimal"
+               placeholder="Masukkan nilai 0-100">
 
-        <button onclick="hitungNilai()">
-            Hitung Huruf Mutu
-        </button>
+        <button onclick="hitungNilai()">Hitung Huruf Mutu</button>
 
-        <div id="hasil" aria-live="polite"></div>
+        <div id="hasil"></div>
     </div>
 
     <script>
         function hitungNilai() {
             const nama = document.getElementById("nama").value.trim();
-            const inputNilai = document.getElementById("nilai").value.trim();
+            const teks = document.getElementById("nilai").value.trim();
             const hasil = document.getElementById("hasil");
 
             hasil.style.display = "block";
             hasil.className = "";
 
             if (nama === "") {
-                tampilkanError("Nama harus diisi!");
-                return;
+                return error("Nama harus diisi!");
             }
 
-            if (inputNilai === "") {
-                tampilkanError("Nilai akhir harus diisi!");
-                return;
+            if (teks === "") {
+                return error("Nilai harus diisi!");
             }
 
-            const nilai = Number(inputNilai.replace(",", "."));
+            const nilai = Number(teks.replace(",", "."));
 
             if (!Number.isFinite(nilai)) {
-                tampilkanError("Nilai harus berupa angka!");
-                return;
+                return error("Nilai harus berupa angka!");
             }
 
             if (nilai < 0) {
-                tampilkanError("Nilai tidak boleh negatif!");
-                return;
+                return error("Nilai tidak boleh negatif!");
             }
 
             if (nilai > 100) {
-                tampilkanError("Nilai tidak boleh melebihi 100!");
-                return;
+                return error("Nilai tidak boleh melebihi 100!");
             }
 
             let mutu;
@@ -205,19 +151,13 @@
             const barisMutu = document.createElement("h2");
             barisMutu.textContent = "Huruf Mutu: " + mutu;
 
-            hasil.replaceChildren(
-                barisNama,
-                barisNilai,
-                barisMutu
-            );
-        }
+            hasil.replaceChildren(barisNama, barisNilai, barisMutu);
 
-        function tampilkanError(pesan) {
-            const hasil = document.getElementById("hasil");
-            hasil.className = "error";
-            hasil.textContent = "Error: " + pesan;
+            function error(pesan) {
+                hasil.className = "error";
+                hasil.textContent = "Error: " + pesan;
+            }
         }
     </script>
-
 </body>
 </html>
