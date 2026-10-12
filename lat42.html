@@ -4,14 +4,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Penghitung Usia</title>
+    <title>Kalkulator Usia</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eaf7fc;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: white;
+            width: 100%;
+            max-width: 600px;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2878c8;
+            font-size: 32px;
+            margin-bottom: 45px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        input[type="date"] {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #e5e5e5;
+            border-radius: 12px;
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        #hasilUsia {
+            background-color: #eaf6fc;
+            color: #426783;
+            padding: 22px;
+            border-radius: 15px;
+            font-size: 20px;
+            line-height: 1.8;
+            min-height: 70px;
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                padding: 25px;
+                border-radius: 25px;
+            }
+
+            h1 {
+                font-size: 27px;
+                margin-bottom: 35px;
+            }
+
+            label {
+                font-size: 18px;
+            }
+
+            input[type="date"],
+            #hasilUsia {
+                font-size: 16px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-    <label for="tanggalLahir">Tanggal lahir kamu:</label>
-    <input type="date" id="tanggalLahir" value="2008-03-12">
+    <div class="card">
+        <h1>Kalkulator Usia</h1>
 
-    <p id="hasilUsia"></p>
+        <label for="tanggalLahir">
+            Tanggal lahir kamu:
+        </label>
+
+        <input type="date" id="tanggalLahir"
+               value="2008-03-12">
+
+        <p id="hasilUsia"></p>
+    </div>
 
     <script>
         const inputTanggal = document.getElementById("tanggalLahir");
@@ -37,12 +126,11 @@
 
             if (hari < 0) {
                 bulan--;
-                const hariBulanSebelumnya = new Date(
+                hari += new Date(
                     sekarang.getFullYear(),
                     sekarang.getMonth(),
                     0
                 ).getDate();
-                hari += hariBulanSebelumnya;
             }
 
             if (bulan < 0) {
@@ -60,3 +148,4 @@
 
 </body>
 </html>
+
