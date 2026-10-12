@@ -1,0 +1,67 @@
+
+function hitungNilai() {
+    const nama = document.getElementById("nama").value.trim();
+    const inputNilai = document.getElementById("nilai").value.trim();
+    const hasil = document.getElementById("hasil");
+
+    hasil.style.display = "block";
+    hasil.className = "";
+
+    if (nama === "") {
+        hasil.classList.add("error");
+        hasil.textContent = "Error: Nama harus diisi!";
+        return;
+    }
+
+    if (inputNilai === "" || !Number.isFinite(Number(inputNilai))) {
+        hasil.classList.add("error");
+        hasil.textContent = "Error: Nilai harus berupa angka!";
+        return;
+    }
+
+    const nilai = Number(inputNilai);
+
+    if (nilai < 0) {
+        hasil.classList.add("error");
+        hasil.textContent = "Error: Nilai tidak boleh negatif!";
+        return;
+    }
+
+    if (nilai > 100) {
+        hasil.classList.add("error");
+        hasil.textContent = "Error: Nilai tidak boleh melebihi 100!";
+        return;
+    }
+
+    let mutu;
+
+    if (nilai < 49.5) {
+        mutu = "E";
+    } else if (nilai < 59.5) {
+        mutu = "D";
+    } else if (nilai < 74.5) {
+        mutu = "C";
+    } else if (nilai < 84.5) {
+        mutu = "B";
+    } else {
+        mutu = "A";
+    }
+
+    hasil.classList.add("mutu-" + mutu);
+    hasil.innerHTML =
+        "<strong>Nama:</strong> " + escapeHTML(nama) +
+        "<br><strong>Nilai akhir:</strong> " + nilai +
+        "<br><strong>Huruf mutu:</strong> " + mutu;
+}
+
+function escapeHTML(teks) {
+    return teks.replace(/[&<>"']/g, function (karakter) {
+        return {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#39;"
+        }[karakter];
+    });
+}
