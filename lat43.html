@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Algoritma JavaScript</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef5ff;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 30px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px #ccc;
+        }
+
+        h2 {
+            color: #2563eb;
+        }
+
+        input {
+            width: 95%;
+            padding: 10px;
+            margin: 8px 0;
+        }
+
+        button {
+            background: #2563eb;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 8px 0;
+        }
+
+        .hasil {
+            background: #eaf3ff;
+            padding: 12px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Deret Fibonacci</h2>
+    <p>Program untuk mencari suku ke-20.</p>
+
+    <button onclick="hitungFibonacci()">
+        Hitung Fibonacci
+    </button>
+
+    <p id="fibonacci" class="hasil"></p>
+
+    <hr>
+
+    <h2>Penjumlahan Dua Bilangan</h2>
+
+    <label for="angka1">Bilangan pertama:</label>
+    <input type="number" id="angka1" placeholder="Masukkan bilangan pertama">
+
+    <label for="angka2">Bilangan kedua:</label>
+    <input type="number" id="angka2" placeholder="Masukkan bilangan kedua">
+
+    <button onclick="jumlahkan()">Hitung Penjumlahan</button>
+
+    <p id="hasilJumlah" class="hasil"></p>
+</div>
+
+<script>
+    function hitungFibonacci() {
+        let a = 0;
+        let b = 1;
+
+        for (let i = 3; i <= 20; i++) {
+            let c = a + b;
+            a = b;
+            b = c;
+        }
+
+        document.getElementById("fibonacci").textContent =
+            "Suku ke-20 Fibonacci adalah " + b;
+    }
+
+    function jumlahkan() {
+        let angka1 = document.getElementById("angka1").value;
+        let angka2 = document.getElementById("angka2").value;
+
+        if (angka1 === "" || angka2 === "") {
+            document.getElementById("hasilJumlah").textContent =
+                "Silakan masukkan kedua bilangan.";
+            return;
+        }
+
+        let hasil = Number(angka1) + Number(angka2);
+
+        document.getElementById("hasilJumlah").textContent =
+            "Hasil penjumlahan: " + hasil;
+    }
+</script>
+
+</body>
+</html>
