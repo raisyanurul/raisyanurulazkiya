@@ -1,68 +1,412 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biodata Mahasiswa - Raisya Nurul Azkiya</title>
 
-    <title>Biodata Raisya</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-    <!-- Bootstrap CDN -->
-    <link 
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
-        rel="stylesheet"
-    >
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f6fa;
+            color: #333;
+        }
+
+        /* NAVBAR */
+        nav {
+            background: white;
+            padding: 25px 10px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 35px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav a {
+            color: #397dc2;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #075bc9;
+        }
+
+        /* BIODATA */
+        .biodata {
+            background: white;
+            max-width: 650px;
+            margin: 90px auto 40px;
+            padding: 45px;
+            border-radius: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        .profile {
+            text-align: center;
+        }
+
+        .avatar {
+            width: 190px;
+            height: 190px;
+            background: #1670ed;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 65px;
+            margin: 0 auto 30px;
+        }
+
+        .profile h1 {
+            font-size: 32px;
+            font-weight: normal;
+            margin-bottom: 10px;
+        }
+
+        .profile h3 {
+            color: #777;
+            font-size: 22px;
+            font-weight: normal;
+            margin-top: 15px;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #ddd;
+            margin: 55px 0;
+        }
+
+        .detail {
+            margin-bottom: 35px;
+        }
+
+        .detail label {
+            display: block;
+            color: #777;
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .detail p {
+            font-size: 22px;
+            margin: 0;
+        }
+
+        .status {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .status span {
+            display: inline-block;
+            background: #1670ed;
+            color: white;
+            padding: 17px 30px;
+            border-radius: 12px;
+            font-size: 18px;
+        }
+
+        /* KALKULATOR */
+        .calculator {
+            max-width: 650px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .calc-header {
+            background: #1670ed;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        .calc-header h2 {
+            font-size: 30px;
+            font-weight: normal;
+        }
+
+        .calc-header p {
+            background: white;
+            color: #64829d;
+            padding: 15px;
+            font-size: 17px;
+        }
+
+        .calc-content {
+            padding: 35px;
+        }
+
+        .calc-content label {
+            display: block;
+            font-size: 20px;
+            margin: 20px 0 15px;
+        }
+
+        .calc-content input,
+        .calc-content select {
+            width: 100%;
+            padding: 20px;
+            border: 2px solid #e0e2e6;
+            border-radius: 10px;
+            font-size: 18px;
+            background: white;
+        }
+
+        .calc-content button {
+            width: 100%;
+            padding: 20px;
+            background: #1670ed;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 22px;
+            margin-top: 30px;
+            cursor: pointer;
+        }
+
+        .calc-content button:hover {
+            background: #075bc9;
+        }
+
+        .hasil {
+            background: #f1f4f9;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        /* LATIHAN */
+        .latihan {
+            max-width: 650px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            scroll-margin-top: 100px;
+        }
+
+        .latihan h2 {
+            color: #1670ed;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #777;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                gap: 20px;
+                padding: 20px 10px;
+            }
+
+            nav a {
+                font-size: 16px;
+            }
+
+            .biodata,
+            .calculator,
+            .latihan {
+                margin: 35px 15px;
+            }
+
+            .biodata {
+                padding: 30px 25px;
+            }
+
+            .avatar {
+                width: 150px;
+                height: 150px;
+            }
+
+            .profile h1 {
+                font-size: 25px;
+            }
+
+            .calc-content {
+                padding: 25px;
+            }
+        }
+    </style>
 </head>
 
-<body class="bg-light">
-    <section>
-        <a href="lat41.html">Latihan P4-1 </a>
-        <a href="lat42.html">Latihan P4-2 </a>
-        <a href="lat43.html">Latihan P4-3 </a>
-        <a href="lat44.html">Latihan P4-4 </a>
-    </section>
-    </section>
+<body>
 
-    <div class="container py-5">
-        <div class="row justify-content-center">
-            <div class="col-12 col-sm-10 col-md-8 col-lg-6">
+    <!-- NAVBAR LATIHAN -->
+    <nav>
+        <a href="#p4-1">Latihan P4-1</a>
+        <a href="#p4-2">Latihan P4-2</a>
+        <a href="#p4-3">Latihan P4-3</a>
+        <a href="#p4-4">Latihan P4-4</a>
+    </nav>
 
-                <div class="card shadow border-0">
-                    <div class="card-body p-4 text-center">
+    <!-- BIODATA MAHASISWA -->
+    <div class="biodata">
 
-                        <h1 class="mb-4">Biodata Mahasiswa</h1>
+        <div class="profile">
+            <div class="avatar">R</div>
 
-                        <div class="text-start">
-                            <p>
-                                <strong>Nama:</strong><br>
-                                Raisya Nurul Azkiya
-                            </p>
+            <h1>Raisya Nurul Azkiya</h1>
+            <h3>Mahasiswa Semester 1</h3>
+        </div>
 
-                            <p>
-                                <strong>Kelas:</strong><br>
-                                Komputerisasi Akuntansi
-                            </p>
+        <hr>
 
-                            <p>
-                                <strong>Semester:</strong><br>
-                                1
-                            </p>
-                        </div>
+        <div class="detail">
+            <label>Nama Lengkap</label>
+            <p>Raisya Nurul Azkiya</p>
+        </div>
 
-                        <button class="btn btn-primary mt-3">
-                            Mahasiswa Aktif
-                        </button>
+        <div class="detail">
+            <label>NIM</label>
+            <p>262302011</p>
+        </div>
 
-                    </div>
-                </div>
+        <div class="detail">
+            <label>Program Studi</label>
+            <p>Komputerisasi Akuntansi</p>
+        </div>
 
+        <div class="detail">
+            <label>Semester</label>
+            <p>1</p>
+        </div>
+
+        <div class="status">
+            <span>Mahasiswa Aktif</span>
+        </div>
+
+    </div>
+
+    <!-- KALKULATOR ARITMATIKA -->
+    <div class="calculator">
+
+        <div class="calc-header">
+            <h2>Kalkulator Aritmatika</h2>
+            <p>Raisya Nurul Azkiya - NIM. 262302011</p>
+        </div>
+
+        <div class="calc-content">
+
+            <label>Angka Pertama</label>
+            <input type="number" id="angka1" placeholder="Masukkan angka pertama">
+
+            <label>Angka Kedua</label>
+            <input type="number" id="angka2" placeholder="Masukkan angka kedua">
+
+            <label>Pilih Operator</label>
+            <select id="operator">
+                <option value="+">Penjumlahan (+)</option>
+                <option value="-">Pengurangan (-)</option>
+                <option value="*">Perkalian (*)</option>
+                <option value="/">Pembagian (/)</option>
+                <option value="**">Pangkat (**)</option>
+            </select>
+
+            <button onclick="hitung()">Hitung</button>
+
+            <div class="hasil">
+                <h3>Hasil Perhitungan</h3>
+                <p id="hasil">Belum ada hasil</p>
             </div>
+
         </div>
     </div>
 
-    <!-- Bootstrap JS CDN -->
-    <script 
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    <!-- SECTION LATIHAN P4-1 -->
+    <div class="latihan" id="p4-1">
+        <h2>Latihan P4-1</h2>
+        <p>Section untuk menampilkan tugas Latihan P4-1.</p>
+    </div>
+
+    <!-- SECTION LATIHAN P4-2 -->
+    <div class="latihan" id="p4-2">
+        <h2>Latihan P4-2</h2>
+        <p>Section untuk menampilkan tugas Latihan P4-2.</p>
+    </div>
+
+    <!-- SECTION LATIHAN P4-3 -->
+    <div class="latihan" id="p4-3">
+        <h2>Latihan P4-3</h2>
+        <p>Section untuk menampilkan tugas Latihan P4-3.</p>
+    </div>
+
+    <!-- SECTION LATIHAN P4-4 -->
+    <div class="latihan" id="p4-4">
+        <h2>Latihan P4-4</h2>
+        <p>Section untuk menampilkan tugas Latihan P4-4.</p>
+    </div>
+
+    <footer>
+        <p>© 2026 Raisya Nurul Azkiya</p>
+        <p>Komputerisasi Akuntansi - Semester 1</p>
+    </footer>
+
+    <!-- JAVASCRIPT KALKULATOR -->
+    <script>
+        function hitung() {
+
+            let a = parseFloat(document.getElementById("angka1").value);
+            let b = parseFloat(document.getElementById("angka2").value);
+            let op = document.getElementById("operator").value;
+
+            let hasil;
+
+            if (isNaN(a) || isNaN(b)) {
+                hasil = "Masukkan kedua angka terlebih dahulu!";
+            }
+
+            else {
+                switch (op) {
+
+                    case "+":
+                        hasil = a + b;
+                        break;
+
+                    case "-":
+                        hasil = a - b;
+                        break;
+
+                    case "*":
+                        hasil = a * b;
+                        break;
+
+                    case "/":
+                        hasil = b === 0
+                            ? "Tidak bisa dibagi nol!"
+                            : a / b;
+                        break;
+
+                    case "**":
+                        hasil = a ** b;
+                        break;
+                }
+            }
+
+            document.getElementById("hasil").innerText = hasil;
+        }
     </script>
 
 </body>
-</html>
+    </html>
+    
