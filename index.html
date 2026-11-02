@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Biodata Mahasiswa - Raisya Nurul Azkiya</title>
 
     <style>
@@ -25,12 +26,13 @@
             padding: 25px 10px;
             display: flex;
             justify-content: center;
+            align-items: center;
             flex-wrap: wrap;
             gap: 35px;
             box-shadow: 0 3px 10px rgba(0,0,0,0.08);
             position: sticky;
             top: 0;
-            z-index: 10;
+            z-index: 100;
         }
 
         nav a {
@@ -42,6 +44,7 @@
 
         nav a:hover {
             color: #075bc9;
+            text-decoration: underline;
         }
 
         /* BIODATA */
@@ -72,7 +75,7 @@
         }
 
         .profile h1 {
-            font-size: 32px;
+            font-size: 30px;
             font-weight: normal;
             margin-bottom: 10px;
         }
@@ -193,27 +196,14 @@
             text-align: center;
         }
 
-        /* LATIHAN */
-        .latihan {
-            max-width: 650px;
-            margin: 40px auto;
-            padding: 30px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            scroll-margin-top: 100px;
-        }
-
-        .latihan h2 {
-            color: #1670ed;
-        }
-
+        /* FOOTER */
         footer {
             text-align: center;
             padding: 30px;
             color: #777;
         }
 
+        /* RESPONSIVE */
         @media (max-width: 600px) {
             nav {
                 gap: 20px;
@@ -225,8 +215,7 @@
             }
 
             .biodata,
-            .calculator,
-            .latihan {
+            .calculator {
                 margin: 35px 15px;
             }
 
@@ -254,20 +243,24 @@
 
     <!-- NAVBAR LATIHAN -->
     <nav>
-        <a href="#p4-1">Latihan P4-1</a>
-        <a href="#p4-2">Latihan P4-2</a>
-        <a href="#p4-3">Latihan P4-3</a>
-        <a href="#p4-4">Latihan P4-4</a>
+        <a href="lat41.html">Latihan P4-1</a>
+        <a href="lat42.html">Latihan P4-2</a>
+        <a href="lat43.html">Latihan P4-3</a>
+        <a href="lat44.html">Latihan P4-4</a>
     </nav>
+
 
     <!-- BIODATA MAHASISWA -->
     <div class="biodata">
 
         <div class="profile">
+
             <div class="avatar">R</div>
 
             <h1>Raisya Nurul Azkiya</h1>
+
             <h3>Mahasiswa Semester 1</h3>
+
         </div>
 
         <hr>
@@ -298,85 +291,102 @@
 
     </div>
 
+
     <!-- KALKULATOR ARITMATIKA -->
     <div class="calculator">
 
         <div class="calc-header">
+
             <h2>Kalkulator Aritmatika</h2>
-            <p>Raisya Nurul Azkiya - NIM. 262302011</p>
+
+            <p>
+                Raisya Nurul Azkiya - NIM. 262302011
+            </p>
+
         </div>
 
         <div class="calc-content">
 
             <label>Angka Pertama</label>
-            <input type="number" id="angka1" placeholder="Masukkan angka pertama">
+
+            <input
+                type="number"
+                id="angka1"
+                placeholder="Masukkan angka pertama"
+            >
 
             <label>Angka Kedua</label>
-            <input type="number" id="angka2" placeholder="Masukkan angka kedua">
+
+            <input
+                type="number"
+                id="angka2"
+                placeholder="Masukkan angka kedua"
+            >
 
             <label>Pilih Operator</label>
+
             <select id="operator">
+
                 <option value="+">Penjumlahan (+)</option>
+
                 <option value="-">Pengurangan (-)</option>
+
                 <option value="*">Perkalian (*)</option>
+
                 <option value="/">Pembagian (/)</option>
+
                 <option value="**">Pangkat (**)</option>
+
             </select>
 
-            <button onclick="hitung()">Hitung</button>
+            <button onclick="hitung()">
+                Hitung
+            </button>
 
             <div class="hasil">
-                <h3>Hasil Perhitungan</h3>
+
+                <h3>Hasil Perhitungan:</h3>
+
                 <p id="hasil">Belum ada hasil</p>
+
             </div>
 
         </div>
+
     </div>
 
-    <!-- SECTION LATIHAN P4-1 -->
-    <div class="latihan" id="p4-1">
-        <h2>Latihan P4-1</h2>
-        <p>Section untuk menampilkan tugas Latihan P4-1.</p>
-    </div>
 
-    <!-- SECTION LATIHAN P4-2 -->
-    <div class="latihan" id="p4-2">
-        <h2>Latihan P4-2</h2>
-        <p>Section untuk menampilkan tugas Latihan P4-2.</p>
-    </div>
-
-    <!-- SECTION LATIHAN P4-3 -->
-    <div class="latihan" id="p4-3">
-        <h2>Latihan P4-3</h2>
-        <p>Section untuk menampilkan tugas Latihan P4-3.</p>
-    </div>
-
-    <!-- SECTION LATIHAN P4-4 -->
-    <div class="latihan" id="p4-4">
-        <h2>Latihan P4-4</h2>
-        <p>Section untuk menampilkan tugas Latihan P4-4.</p>
-    </div>
-
+    <!-- FOOTER -->
     <footer>
+
         <p>© 2026 Raisya Nurul Azkiya</p>
+
         <p>Komputerisasi Akuntansi - Semester 1</p>
+
     </footer>
+
 
     <!-- JAVASCRIPT KALKULATOR -->
     <script>
+
         function hitung() {
 
-            let a = parseFloat(document.getElementById("angka1").value);
-            let b = parseFloat(document.getElementById("angka2").value);
+            let a = document.getElementById("angka1").value;
+            let b = document.getElementById("angka2").value;
+
             let op = document.getElementById("operator").value;
 
             let hasil;
 
-            if (isNaN(a) || isNaN(b)) {
-                hasil = "Masukkan kedua angka terlebih dahulu!";
-            }
+            if (a === "" || b === "") {
 
-            else {
+                hasil = "Masukkan kedua angka terlebih dahulu!";
+
+            } else {
+
+                a = parseFloat(a);
+                b = parseFloat(b);
+
                 switch (op) {
 
                     case "+":
@@ -392,21 +402,28 @@
                         break;
 
                     case "/":
-                        hasil = b === 0
-                            ? "Tidak bisa dibagi nol!"
-                            : a / b;
+
+                        if (b === 0) {
+                            hasil = "Tidak bisa dibagi nol!";
+                        } else {
+                            hasil = a / b;
+                        }
+
                         break;
 
                     case "**":
                         hasil = a ** b;
                         break;
+
                 }
+
             }
 
             document.getElementById("hasil").innerText = hasil;
+
         }
+
     </script>
 
 </body>
-    </html>
-    
+</html>
