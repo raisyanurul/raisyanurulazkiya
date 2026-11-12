@@ -2,428 +2,486 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biodata Mahasiswa & Scientific Calculator</title>
 
-    <title>Biodata Mahasiswa - Raisya Nurul Azkiya</title>
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #101d49, #173e99);
+    padding: 30px 15px;
+    color: #26334c;
+}
 
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background: #f5f6fa;
-            color: #333;
-        }
+.container {
+    max-width: 650px;
+    margin: auto;
+}
 
-        /* NAVBAR */
-        nav {
-            background: white;
-            padding: 25px 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 35px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+/* BIODATA */
 
-        nav a {
-            color: #397dc2;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: 500;
-        }
+.profile {
+    background: white;
+    border-radius: 0 0 35px 35px;
+    text-align: center;
+    padding: 35px 25px;
+    box-shadow: 0 12px 30px #07153555;
+}
 
-        nav a:hover {
-            color: #075bc9;
-            text-decoration: underline;
-        }
+.profile h2 {
+    margin-bottom: 30px;
+    font-weight: normal;
+}
 
-        /* BIODATA */
-        .biodata {
-            background: white;
-            max-width: 650px;
-            margin: 90px auto 40px;
-            padding: 45px;
-            border-radius: 25px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-        }
+.data {
+    margin-bottom: 30px;
+}
 
-        .profile {
-            text-align: center;
-        }
+.data p {
+    font-size: 19px;
+    margin-bottom: 25px;
+    color: #34415e;
+}
 
-        .avatar {
-            width: 190px;
-            height: 190px;
-            background: #1670ed;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 65px;
-            margin: 0 auto 30px;
-        }
+.data strong {
+    display: block;
+    font-size: 21px;
+    font-weight: normal;
+    margin-top: 15px;
+}
 
-        .profile h1 {
-            font-size: 30px;
-            font-weight: normal;
-            margin-bottom: 10px;
-        }
+.line {
+    border-top: 1px solid #ccc;
+    margin: 35px 20px;
+}
 
-        .profile h3 {
-            color: #777;
-            font-size: 22px;
-            font-weight: normal;
-            margin-top: 15px;
-        }
+.navigation h3 {
+    font-size: 21px;
+    font-weight: normal;
+    margin-bottom: 25px;
+}
 
-        hr {
-            border: none;
-            border-top: 2px solid #ddd;
-            margin: 55px 0;
-        }
+.nav-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
 
-        .detail {
-            margin-bottom: 35px;
-        }
+.nav-buttons button {
+    background: #2450d6;
+    color: white;
+    border: none;
+    padding: 19px 22px;
+    border-radius: 13px;
+    font-size: 17px;
+    cursor: pointer;
+}
 
-        .detail label {
-            display: block;
-            color: #777;
-            font-size: 18px;
-            margin-bottom: 12px;
-        }
+.nav-buttons button:hover {
+    background: #173aaf;
+}
 
-        .detail p {
-            font-size: 22px;
-            margin: 0;
-        }
+footer {
+    background: #f0f3fa;
+    margin: 45px -25px -35px;
+    padding: 32px 10px;
+    border-radius: 0 0 35px 35px;
+    color: #718096;
+    font-size: 19px;
+}
 
-        .status {
-            text-align: center;
-            margin-top: 50px;
-        }
+/* CALCULATOR */
 
-        .status span {
-            display: inline-block;
-            background: #1670ed;
-            color: white;
-            padding: 17px 30px;
-            border-radius: 12px;
-            font-size: 18px;
-        }
+.calculator {
+    background: #202a3c;
+    margin-top: 65px;
+    border-radius: 30px;
+    padding: 25px 22px;
+    box-shadow: 0 10px 25px #07153555;
+}
 
-        /* KALKULATOR */
-        .calculator {
-            max-width: 650px;
-            margin: 40px auto;
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-        }
+.calculator h1 {
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    margin-bottom: 35px;
+}
 
-        .calc-header {
-            background: #1670ed;
-            color: white;
-            text-align: center;
-            padding: 25px;
-        }
+.screen {
+    background: #dce8d3;
+    border-radius: 20px;
+    min-height: 175px;
+    padding: 20px;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    overflow: hidden;
+}
 
-        .calc-header h2 {
-            font-size: 30px;
-            font-weight: normal;
-        }
+#display {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    text-align: right;
+    font-size: 30px;
+    color: #18251b;
+    margin-bottom: 15px;
+}
 
-        .calc-header p {
-            background: white;
-            color: #64829d;
-            padding: 15px;
-            font-size: 17px;
-        }
+#result {
+    font-size: 17px;
+    color: #53644f;
+    word-break: break-all;
+}
 
-        .calc-content {
-            padding: 35px;
-        }
+.top-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 35px;
+}
 
-        .calc-content label {
-            display: block;
-            font-size: 20px;
-            margin: 20px 0 15px;
-        }
+.top-buttons button {
+    background: transparent;
+    color: white;
+    border: 2px solid #e5e8ed;
+    border-radius: 12px;
+    padding: 18px 5px;
+    font-size: 17px;
+    cursor: pointer;
+}
 
-        .calc-content input,
-        .calc-content select {
-            width: 100%;
-            padding: 20px;
-            border: 2px solid #e0e2e6;
-            border-radius: 10px;
-            font-size: 18px;
-            background: white;
-        }
+.section-title {
+    color: #b6c0d1;
+    margin: 25px 0 18px;
+    font-size: 17px;
+}
 
-        .calc-content button {
-            width: 100%;
-            padding: 20px;
-            background: #1670ed;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 22px;
-            margin-top: 30px;
-            cursor: pointer;
-        }
+.keys {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
 
-        .calc-content button:hover {
-            background: #075bc9;
-        }
+.keys button {
+    border: none;
+    border-radius: 15px;
+    padding: 17px 3px;
+    font-size: 17px;
+    background: #43536d;
+    color: white;
+    cursor: pointer;
+    min-width: 0;
+}
 
-        .hasil {
-            background: #f1f4f9;
-            padding: 20px;
-            margin-top: 30px;
-            border-radius: 10px;
-            text-align: center;
-        }
+.keys button:hover {
+    filter: brightness(1.2);
+}
 
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: #777;
-        }
+.keys .operator {
+    background: #2450d6;
+}
 
-        /* RESPONSIVE */
-        @media (max-width: 600px) {
-            nav {
-                gap: 20px;
-                padding: 20px 10px;
-            }
+.keys .special {
+    background: #657b9d;
+}
 
-            nav a {
-                font-size: 16px;
-            }
+.keys .equal {
+    background: #1d9b78;
+}
 
-            .biodata,
-            .calculator {
-                margin: 35px 15px;
-            }
+.keys .clear {
+    background: #c34b58;
+}
 
-            .biodata {
-                padding: 30px 25px;
-            }
+.calculator-note {
+    text-align: center;
+    color: #aab5c7;
+    margin-top: 25px;
+    font-size: 13px;
+}
 
-            .avatar {
-                width: 150px;
-                height: 150px;
-            }
+@media(max-width: 400px) {
+    .keys {
+        gap: 7px;
+    }
 
-            .profile h1 {
-                font-size: 25px;
-            }
+    .keys button {
+        padding: 15px 2px;
+        font-size: 15px;
+    }
 
-            .calc-content {
-                padding: 25px;
-            }
-        }
-    </style>
+    .calculator h1 {
+        font-size: 21px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <!-- NAVBAR LATIHAN -->
-    <nav>
-        <a href="lat41.html">Latihan P4-1</a>
-        <a href="lat42.html">Latihan P4-2</a>
-        <a href="lat43.html">Latihan P4-3</a>
-        <a href="lat44.html">Latihan P4-4</a>
-    </nav>
-
+<div class="container">
 
     <!-- BIODATA MAHASISWA -->
-    <div class="biodata">
 
-        <div class="profile">
+    <section class="profile">
 
-            <div class="avatar">R</div>
+        <h2>BIODATA MAHASISWA</h2>
 
-            <h1>Raisya Nurul Azkiya</h1>
+        <div class="data">
 
-            <h3>Mahasiswa Semester 1</h3>
+            <p>Nama Lengkap
+                <strong>Raisya Nurul Azkiya</strong>
+            </p>
 
-        </div>
+            <p>NIM
+                <strong>262302011</strong>
+            </p>
 
-        <hr>
+            <p>Program Studi
+                <strong>Komputerisasi Akuntansi</strong>
+            </p>
 
-        <div class="detail">
-            <label>Nama Lengkap</label>
-            <p>Raisya Nurul Azkiya</p>
-        </div>
+            <p>Semester
+                <strong>1</strong>
+            </p>
 
-        <div class="detail">
-            <label>NIM</label>
-            <p>262302011</p>
-        </div>
-
-        <div class="detail">
-            <label>Program Studi</label>
-            <p>Komputerisasi Akuntansi</p>
-        </div>
-
-        <div class="detail">
-            <label>Semester</label>
-            <p>1</p>
-        </div>
-
-        <div class="status">
-            <span>Mahasiswa Aktif</span>
-        </div>
-
-    </div>
-
-
-    <!-- KALKULATOR ARITMATIKA -->
-    <div class="calculator">
-
-        <div class="calc-header">
-
-            <h2>Kalkulator Aritmatika</h2>
-
-            <p>
-                Raisya Nurul Azkiya - NIM. 262302011
+            <p>Status
+                <strong>Mahasiswa Aktif</strong>
             </p>
 
         </div>
 
-        <div class="calc-content">
+        <div class="line"></div>
 
-            <label>Angka Pertama</label>
+        <div class="navigation">
 
-            <input
-                type="number"
-                id="angka1"
-                placeholder="Masukkan angka pertama"
-            >
+            <h3>Navigasi Materi</h3>
 
-            <label>Angka Kedua</label>
-
-            <input
-                type="number"
-                id="angka2"
-                placeholder="Masukkan angka kedua"
-            >
-
-            <label>Pilih Operator</label>
-
-            <select id="operator">
-
-                <option value="+">Penjumlahan (+)</option>
-
-                <option value="-">Pengurangan (-)</option>
-
-                <option value="*">Perkalian (*)</option>
-
-                <option value="/">Pembagian (/)</option>
-
-                <option value="**">Pangkat (**)</option>
-
-            </select>
-
-            <button onclick="hitung()">
-                Hitung
-            </button>
-
-            <div class="hasil">
-
-                <h3>Hasil Perhitungan:</h3>
-
-                <p id="hasil">Belum ada hasil</p>
-
+            <div class="nav-buttons">
+                <button onclick="latihan(41)">Latihan 41</button>
+                <button onclick="latihan(42)">Latihan 42</button>
+                <button onclick="latihan(43)">Latihan 43</button>
+                <button onclick="latihan(44)">Latihan 44</button>
             </div>
 
         </div>
 
-    </div>
+        <footer>
+            © 2026 - Biodata Mahasiswa
+        </footer>
+
+    </section>
 
 
-    <!-- FOOTER -->
-    <footer>
+    <!-- SCIENTIFIC CALCULATOR -->
 
-        <p>© 2026 Raisya Nurul Azkiya</p>
+    <section class="calculator">
 
-        <p>Komputerisasi Akuntansi - Semester 1</p>
+        <h1>SCIENTIFIC CALCULATOR</h1>
 
-    </footer>
+        <div class="screen">
+            <input id="display" value="0" readonly>
+            <div id="result">DEG</div>
+        </div>
+
+        <div class="top-buttons">
+            <button onclick="toggleMode()" id="mode">
+                DEG / RAD
+            </button>
+
+            <button onclick="copyResult()">
+                SALIN HASIL
+            </button>
+        </div>
 
 
-    <!-- JAVASCRIPT KALKULATOR -->
-    <script>
+        <p class="section-title">FUNGSI ILMIAH</p>
 
-        function hitung() {
+        <div class="keys">
 
-            let a = document.getElementById("angka1").value;
-            let b = document.getElementById("angka2").value;
+            <button class="special" onclick="add('sin(')">sin</button>
+            <button class="special" onclick="add('cos(')">cos</button>
+            <button class="special" onclick="add('tan(')">tan</button>
+            <button class="special" onclick="add('log(')">log</button>
+            <button class="special" onclick="add('ln(')">ln</button>
 
-            let op = document.getElementById("operator").value;
+            <button class="special" onclick="add('sqrt(')">√</button>
+            <button class="special" onclick="add('^2')">x²</button>
+            <button class="special" onclick="add('^')">xʸ</button>
+            <button class="special" onclick="add('(')">(</button>
+            <button class="special" onclick="add(')')">)</button>
 
-            let hasil;
+            <button class="special" onclick="add('π')">π</button>
+            <button class="special" onclick="add('e')">e</button>
+            <button class="special" onclick="add('%')">%</button>
+            <button class="clear" onclick="clearDisplay()">AC</button>
+            <button class="clear" onclick="backspace()">DEL</button>
 
-            if (a === "" || b === "") {
+            <button onclick="add('7')">7</button>
+            <button onclick="add('8')">8</button>
+            <button onclick="add('9')">9</button>
+            <button class="operator" onclick="add('/')">÷</button>
+            <button class="operator" onclick="add('*')">×</button>
 
-                hasil = "Masukkan kedua angka terlebih dahulu!";
+            <button onclick="add('4')">4</button>
+            <button onclick="add('5')">5</button>
+            <button onclick="add('6')">6</button>
+            <button class="operator" onclick="add('-')">−</button>
+            <button class="operator" onclick="add('+')">+</button>
 
-            } else {
+            <button onclick="add('1')">1</button>
+            <button onclick="add('2')">2</button>
+            <button onclick="add('3')">3</button>
+            <button onclick="add('0')">0</button>
+            <button onclick="add('.')">.</button>
 
-                a = parseFloat(a);
-                b = parseFloat(b);
+            <button onclick="add('00')">00</button>
+            <button class="equal" style="grid-column:span 4"
+                onclick="calculate()">= HASIL</button>
 
-                switch (op) {
+        </div>
 
-                    case "+":
-                        hasil = a + b;
-                        break;
+        <p class="calculator-note">
+            Scientific Calculator © 2026
+        </p>
 
-                    case "-":
-                        hasil = a - b;
-                        break;
+    </section>
 
-                    case "*":
-                        hasil = a * b;
-                        break;
+</div>
 
-                    case "/":
 
-                        if (b === 0) {
-                            hasil = "Tidak bisa dibagi nol!";
-                        } else {
-                            hasil = a / b;
-                        }
+<script>
 
-                        break;
+let expression = "";
+let angleMode = "DEG";
 
-                    case "**":
-                        hasil = a ** b;
-                        break;
+const display = document.getElementById("display");
+const result = document.getElementById("result");
 
-                }
+function updateDisplay() {
+    display.value = expression || "0";
+    result.textContent = angleMode;
+}
 
-            }
+function add(value) {
+    expression += value;
+    updateDisplay();
+}
 
-            document.getElementById("hasil").innerText = hasil;
+function clearDisplay() {
+    expression = "";
+    updateDisplay();
+}
 
+function backspace() {
+    expression = expression.slice(0, -1);
+    updateDisplay();
+}
+
+function toggleMode() {
+    angleMode = angleMode === "DEG" ? "RAD" : "DEG";
+    updateDisplay();
+}
+
+function calculate() {
+
+    try {
+
+        let exp = expression;
+
+        if (!exp) return;
+
+        // Mengganti simbol matematika
+        exp = exp.replace(/π/g, "Math.PI");
+        exp = exp.replace(/\be\b/g, "Math.E");
+        exp = exp.replace(/\^/g, "**");
+
+        // Fungsi trigonometri
+        exp = exp.replace(/sin\(/g, "sin(");
+        exp = exp.replace(/cos\(/g, "cos(");
+        exp = exp.replace(/tan\(/g, "tan(");
+
+        const sin = x => Math.sin(
+            angleMode === "DEG" ? x * Math.PI / 180 : x
+        );
+
+        const cos = x => Math.cos(
+            angleMode === "DEG" ? x * Math.PI / 180 : x
+        );
+
+        const tan = x => Math.tan(
+            angleMode === "DEG" ? x * Math.PI / 180 : x
+        );
+
+        const sqrt = x => Math.sqrt(x);
+        const log = x => Math.log10(x);
+        const ln = x => Math.log(x);
+
+        // Validasi karakter
+        if (!/^[0-9+\-*/().%\sA-Za-z_]+$/.test(exp)) {
+            throw new Error("Input tidak valid");
         }
 
-    </script>
+        if (!/^(?=.*\d)[0-9+\-*/().%\sA-Za-z_]+$/.test(exp)) {
+            throw new Error("Input tidak valid");
+        }
+
+        const answer = Function(
+            "sin", "cos", "tan", "sqrt", "log", "ln",
+            '"use strict"; return (' + exp + ')'
+        )(sin, cos, tan, sqrt, log, ln);
+
+        if (!Number.isFinite(answer)) {
+            throw new Error("Hasil tidak terdefinisi");
+        }
+
+        expression = String(
+            Number(answer.toPrecision(12))
+        );
+
+        updateDisplay();
+        result.textContent = "Hasil: " + expression;
+
+    } catch (error) {
+
+        result.textContent = "Periksa kembali perhitungan";
+
+    }
+}
+
+function copyResult() {
+
+    const text = expression || "0";
+
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text)
+            .then(() => alert("Hasil berhasil disalin!"))
+            .catch(() => alert("Tidak dapat menyalin hasil."));
+    } else {
+        alert("Fitur salin memerlukan koneksi HTTPS.");
+    }
+
+}
+
+function latihan(nomor) {
+    alert("Kamu memilih Latihan " + nomor);
+}
+
+</script>
 
 </body>
 </html>
