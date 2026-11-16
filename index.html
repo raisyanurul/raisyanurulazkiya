@@ -323,6 +323,7 @@ footer {
             <button onclick="openLatihan(42)">Latihan 42</button>
             <button onclick="openLatihan(43)">Latihan 43</button>
             <button onclick="openLatihan(44)">Latihan 44</button>
+            <button onclick="openPerkalian8()">Perkalian 8</button>
         </div>
 
     </div>
@@ -453,6 +454,26 @@ function openLatihan(nomor) {
     title.textContent = "LATIHAN " + nomor;
 
     frame.src = "lat" + nomor + ".html";
+
+    viewer.style.display = "block";
+
+    viewer.scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+/* NAVIGASI PERKALIAN 8 */
+
+function openPerkalian8() {
+
+    const viewer = document.getElementById("taskViewer");
+    const frame = document.getElementById("taskFrame");
+    const title = document.getElementById("taskTitle");
+
+    title.textContent = "PERKALIAN 8";
+
+    frame.src = "perkalian8.html";
 
     viewer.style.display = "block";
 
@@ -607,4 +628,5 @@ function copyResult() {
 </script>
 
 </body>
-</html>
+    </html>
+    
